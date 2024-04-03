@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ace7f4;
+    text-align: center;
+    color: #56027b;
+}
+#title{
+    font-size: 40px;
+}
+#options{
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    position: relative;
+    top: 20px;
+}
+figcaption{
+    width: 200px;
+    padding: 20px;
+    font-weight:bold;
+    font-size: 30px;
+}
+.balloon{
+    position: relative;
+    top: 20px;
+}
+
+#displayfriends{
+    width: 300px;
+    height: 300px;
+    border: 3px black solid;
+}
+
+.friend{
+
+}
