@@ -1,30 +1,41 @@
-import { displayFriends, displaySpecificFriend, addFriend, removeFriend, updateFriend} from './db';
-function displayAllFriends() {
-   let friends = displayFriends();
-   const friendsJson = JSON.stringify(friends);
-   //return friendsJson to the client
-}
+import {user} from './db';
+import {FXMLHttpRequest} from './Fajak';
+
+export function handleRequest(data) {
+    let response;
+    if (FXMLHttpRequest.method === "GET") {
+      response = { message: "GET request received", content: displayFriends() };
+    } else if (FXMLHttpRequest.method === "POST") {
+        response = { message: "POST request received", content: addNewFriend(data) };
+    } else if (FXMLHttpRequest.method === "PUT") {
+        response = { message: "PUT request received", content: display_specific_friend() };
+    } else if (FXMLHttpRequest.method === "DELETE") {
+      return { message: "DELETE request received", data };
+    } else {
+      return { error: "Unsupported method" };
+    }
+    return JSON.stringify(response)
+  }
 
 function display_specific_friend(nameOFfriend) {
-    let specificFriend = displaySpecificFriend(nameOFfriend)
+    let specificFriend = user.displaySpecificFriend(nameOFfriend)
     let specificFriendJson = JSON.stringify(specificFriend);
-    //return specificFriendJson to thr client
+    return specificFriendJson;
 }
 
 function addNewFriend(newFriend) {
-    let flagAddFriend = addFriend(newFriend);
+    let flagAddFriend = user.addFriend(newFriend);
     if (flagAddFriend) {
-        //return "friend add"
-        alert("the friend added at succesfull");
+        return "the friend added at succesfull";
     }
     else {
         //return "error"
-        alert("The friend could not be added");
+        return "The friend could not be added";
     }
 }
 
-function remove_friend(nameOFfriend) {
-    let flagRemoveFriend = removeFriend(nameOFfriend);
+function removeFriend(nameOFfriend) {
+    let flagRemoveFriend = user.removeFriend(nameOFfriend);
         if (flagRemoveFriend) {
         //return "friend add"
         alert("the friend removed at succesfull");
@@ -35,8 +46,8 @@ function remove_friend(nameOFfriend) {
     }
 }
 
-function update_friend(nameOFfriend, updateDateBirth) {
-    flagUpFriend = updateFriend(nameOFfriend, updateDateBirth);
+function updateFriend(nameOFfriend, updateDateBirth) {
+    flagUpFriend = user.updateFriend(nameOFfriend, updateDateBirth);
     if (flagUpFriend) {
         //return "friend add"
         alert("the friend updated at succesfull");

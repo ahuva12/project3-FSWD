@@ -26,11 +26,30 @@ figcaption{
 }
 
 #displayfriends{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     border: 3px black solid;
+    background-color: white;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
 .friend{
-
+    color: #56027b;
+}
+#displayONEfriend{
+    width: 250px;
+    height: 250px;
+    border: 3px black solid;
+    background-color: white;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
 }
