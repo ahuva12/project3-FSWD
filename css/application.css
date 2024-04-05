@@ -23,6 +23,7 @@ figcaption{
 .balloon{
     position: relative;
     top: 20px;
+    cursor: pointer;
 }
 
 #displayfriends{
@@ -37,6 +38,18 @@ figcaption{
     display: none;
     align-items: center;
     justify-content: center;
+}
+
+.okey {
+    position: relative;
+    top: 89%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #c12c6a;
+    color: white;
+    border: 1px black solid;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .friend{

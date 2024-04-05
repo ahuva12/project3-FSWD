@@ -1,6 +1,6 @@
 import {handleRequest} from './server';
 
-export class FXMLHttpRequest {
+export default class FXMLHttpRequest {
     constructor() {
       this.readyState = 0; 
       this.status = 0;

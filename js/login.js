@@ -13,6 +13,51 @@
  localStorage.setItem('users', usersJson);
  localStorage.setItem('current_user', JSON.stringify({}));
  /*-------------------- CLEAN LOCAL STORAGE--------------------------------*/
+ import user from './db';
+
+const signupForm = document.getElementById('signup-form');
+signupForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let userName = document.getElementById('signup-user-name').value;
+    let userEmail = document.getElementById('signup-email').value;
+    let password = document.getElementsByClassName('password').value;
+    let birthDate = document.getElementById('birthdate').value;
+
+    let newUser = new user(userName, userEmail, password, birthDate);
+    let usersJson = localStorage.getItem('users');
+    let users = JSON.parse(usersJson);
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users)); 
+    goto_applicaion_page();
+});
+
+function validPassword() {
+    let password = document.getElementById('signup-password').value;
+    let confirm_password = document.getElementById('confirm-password').value;
+    if (password !== confirm_password) {
+        alert('הסיסמאות לא זהות!');
+        return false; 
+    }
+    return true;
+}
+
+function goto_applicaion_page() {
+    //todo this with SPA
+}
+
+let go_login = document.getElementById('login-link');
+go_login.addEventListener('click', goto_login);
+
+function goto_login() {
+    //todo this with SPA
+}
+
+
+
+
+
+
 
  const log_in = document.getElementById('login-form');
  const sign_up = document.getElementById('signup-form');
@@ -27,32 +72,6 @@
 
  var cur_user_jason = localStorage.getItem('current_user');
  var cur_user = JSON.parse(cur_user_jason) || {};
-
-
- check_cookies();
- /* 
- a function that checks if a user is already logged in 
- and if the user cookies had expired or not
- */
- function check_cookies(){
-    if(Object.keys(cur_user).length != 0){
-        var now = new Date();
-        var last = new Date(cur_user.last_seen);
-        console.log(new Date(last));
-        var difference = Math.abs(now - last);
-        var milliseconds_per_day = 1000 * 60 * 60 * 24; 
-        var days = Math.floor(difference / milliseconds_per_day);
-        if(days <= 2)
-        {    
-        window.location.href = "/html/games.html";
-        }
-        else{
-            localStorage.setItem("current_user",JSON.stringify({}));
-        }
-    }
-
- }
-
  
  change_to_sign_up.addEventListener('click',function(){
 
@@ -166,13 +185,5 @@
      return true;
  }
 
- function validatePassword() {
-    let password = document.getElementById("signup-password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
-    if (password !== confirmPassword) {
-        alert("הסיסמאות אינן תואמות.");
-        message.style.color = "red";
-    }
-}
 
 

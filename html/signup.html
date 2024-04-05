@@ -20,15 +20,19 @@
             <label for="signup-user-name">מה השם שלך?</label>
             <input type="text" id="signup-user-name" name="signup-user-name" placeholder="מה השם שלך?" required>
 
+            <label for="signup-email">מה המייל שלך?</label>
+            <input type="email" id="signup-email" name="email" placeholder="mail@gmail.com" required>
+
             <label for="signup-password">איזו סיסמא אתה בוחר?</label>
             <input type="password" id="signup-password" name="signup-password" placeholder="הכנס סיסמא" required>
+
             <label for="confirm-password">אימות סיסמא</label>
-            <input type="password" id="signup-password" name="signup-password" placeholder="אימות סיסמא" required>
+            <input type="password" id="confirm-password" name="signup-password" placeholder="אימות סיסמא" required>
 
             <label for="birthdate">מתי חל יום ההולדת שלך?</label>
             <input type="date" id="birthdate" name="birthdate" required>
 
-            <input type="submit" value="Sign Up">
+            <input type="submit" value="Sign Up" onclick="return validPassword()">
         </form>
 
         <div class="switch">

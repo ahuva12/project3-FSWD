@@ -1,4 +1,4 @@
-export class User {
+export default class User {
     constructor(name, email, password, dateBirthday) {
         this.name = name;
         this.email = email;
@@ -25,7 +25,12 @@ export class User {
     //add new friend
     addFriend(friend) {  
         this.friends.push(friend);
-        return true;
+        if (friends.includes(friend)) {
+            return "the friend added at success";
+        }
+        else {
+            return "The friend could not be added";
+        }
     }
 
     //remove friend
@@ -33,9 +38,9 @@ export class User {
         let indexOFfriend = this.friends.findIndex(friend => friend.name === nameOFfriend);
         if (indexOFfriend !== -1) {
             this.friends.splice(indexOFfriend, 1);
-            return true;
+            return "the friend removed at success";
         }
-        return false;
+        return "The friend could not be removed";
     }
 
     //update friend
@@ -43,9 +48,9 @@ export class User {
         let indexOFfriend = this.friends.findIndex(friend => friend.name === nameOFfriend);
         if (indexOFfriend != -1) {
             this.friends[indexOFfriend].dateBirthday = updateDateBirth;
-            return true;
+            return "the friend updated at success";
         }
-        return false;
+        return "The friend could not be updated";
     }
 }
 

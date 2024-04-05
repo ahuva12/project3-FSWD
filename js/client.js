@@ -1,5 +1,4 @@
-import {FXMLHttpRequest} from './Fajak';
-
+import FXMLHttpRequest from './Fajak';
   
 // Function to perform a fake AJAX request
 function fakeAjax(method, url, data, callback) {
@@ -14,23 +13,23 @@ function fakeAjax(method, url, data, callback) {
     xhr.send(data);
 }
   
-  // Example usage:
-  fakeAjax("GET", "/api/data", null, function(response) {
-    console.log(response);
-  });
+//   // Example usage:
+//   fakeAjax("GET", "/api/data", null, function(response) {
+//     console.log(response);
+//   });
 
 const urlWeb = `file:///C:/Users/user/Desktop/%D7%AA%D7%A9%D7%A4%D7%93%20%D7%A1%D7%9E%D7%A1%D7%98%D7%A8%20%D7%90/Full-Stack/project3-FSWD/html/application.html`;
 const displayAllFriends = document.getElementById('displayAllFriends');
-const removeFriend = document.getElementById('removeFriend');
-const searchFriend = document.getElementById('searchFriend');
-const addFriend = document.getElementById('addFriend');
-const updateFriend = document.getElementById('updateFriend');
+const remove_friend = document.getElementById('removeFriend');
+const search_friend = document.getElementById('searchFriend');
+const add_Driend = document.getElementById('addFriend');
+const update_friend = document.getElementById('updateFriend');
 
 displayAllFriends.addEventListener('click', display_all_friends);
-removeFriend.addEventListener('click', removeFriend);
-searchFriend.addEventListener('click', searchFriend);
-addFriend.addEventListener('click', addFriend);
-updateFriend.addEventListener('click', updateFriend);
+remove_friend.addEventListener('click', removeFriend);
+search_friend.addEventListener('click', searchFriend);
+add_Driend.addEventListener('click', addFriend);
+update_friend.addEventListener('click', updateFriend);
 
 function display_all_friends() {
     //send AJAK. result = allFriendsJson
@@ -94,6 +93,15 @@ function updateFriend() {
     }
 }
 
+function hide_display_friends() {
+    let displayfriends = document.getElementById('displayfriends');
+    displayfriends.style.display = 'none';
+}
+
+function hide_display_spec_friend() {
+    let displayONefriend = document.getElementById('displayONEfriend');
+    displayONefriend.style.display = 'none';
+}
 
 
 
