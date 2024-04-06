@@ -10,7 +10,7 @@ function fakeAjax(method, url, data, callback) {
         callback(response);
       }
     };
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 }
   
 //   // Example usage:

@@ -1,7 +1,8 @@
 import {user} from './db';
 import {FXMLHttpRequest} from './Fajak';
 
-export default function handleRequest(data) {
+export default function handleRequest(dataJson) {
+    let data = JSON.parse(dataJson);
     let response;
     if (FXMLHttpRequest.method === "GET" && data === null) {
         response = { message: "GET request received", content: user.displayFriends() };

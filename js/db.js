@@ -71,6 +71,11 @@ function getUserFromLocalStorage() {
     return user;
 }
 
+export default function addUser(newUser) {
+    let newUserJson = JSON.stringify(newUser);
+    localStorage.setItem(newUser.name, newUserJson)
+}
+
 // user1: []
 // user2: []
 // user3: []
