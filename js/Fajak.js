@@ -1,6 +1,6 @@
-import {handleRequest} from './server';
+import handleRequest from './server.js';
 
-export default class FXMLHttpRequest {
+class FXMLHttpRequest {
     constructor() {
       this.readyState = 0; 
       this.status = 0;
@@ -31,7 +31,7 @@ export default class FXMLHttpRequest {
       if (this.readyState !== 1) throw new Error("Invalid state");
       
       setTimeout(() => {
-        this.responseText = this.handleRequest(data);
+        this.responseText = handleRequest(data);
         this.status = 200;
         this.readyState = 4; 
         if (typeof this.onreadystatechange === "function") {
@@ -81,3 +81,6 @@ export default class FXMLHttpRequest {
       // You can add properties and methods if necessary
     }
   }
+
+  export { FXMLHttpRequest };
+

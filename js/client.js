@@ -1,4 +1,6 @@
-import FXMLHttpRequest from './Fajak';
+//import { FXMLHttpRequest } from 'http://127.0.0.1:8080/js/Fajak.js';
+//import { FXMLHttpRequest } from './Fajak';
+
   
 // Function to perform a fake AJAX request
 function fakeAjax(method, url, data, callback) {
@@ -19,7 +21,7 @@ function fakeAjax(method, url, data, callback) {
 //   });
 
 const urlWeb = `file:///C:/Users/user/Desktop/%D7%AA%D7%A9%D7%A4%D7%93%20%D7%A1%D7%9E%D7%A1%D7%98%D7%A8%20%D7%90/Full-Stack/project3-FSWD/html/application.html`;
-const displayAllFriends = document.getElementById('displayAllFriends');
+const displayAllFriends = document.getElementById('displayfriends');
 const remove_friend = document.getElementById('removeFriend');
 const search_friend = document.getElementById('searchFriend');
 const add_Driend = document.getElementById('addFriend');
@@ -32,7 +34,6 @@ add_Driend.addEventListener('click', addFriend);
 update_friend.addEventListener('click', updateFriend);
 
 function display_all_friends() {
-    //send AJAK. result = allFriendsJson
     fakeAjax('GET', urlWeb, null, display_friends_on_screen(allFriends))
 
     function display_friends_on_screen(allFriends) {
@@ -102,6 +103,8 @@ function hide_display_spec_friend() {
     let displayONefriend = document.getElementById('displayONEfriend');
     displayONefriend.style.display = 'none';
 }
+
+
 
 
 

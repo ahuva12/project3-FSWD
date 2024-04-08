@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-up Window</title>
     <link rel="stylesheet" href="../css/login.css">
-    <script src="../js/login.js" defer></script>
+    <script src="../js/signup.js" defer></script>
 </head>
 <body>
     <div class="balloons">
@@ -19,9 +19,9 @@
 
             <label for="signup-user-name">מה השם שלך?</label>
             <input type="text" id="signup-user-name" name="signup-user-name" placeholder="מה השם שלך?" required>
-
+            
             <label for="signup-email">מה המייל שלך?</label>
-            <input type="email" id="signup-email" name="email" placeholder="mail@gmail.com" required>
+            <input type="email" id="signup-email" name="email" placeholder="mail@gmail.com" pattern="^[a-zA-Z0-9]+@+[a-zA-Z0-9]{1,}$" title="The email address is invalid" required onclick="return validMail()">
 
             <label for="signup-password">איזו סיסמא אתה בוחר?</label>
             <input type="password" id="signup-password" name="signup-password" placeholder="הכנס סיסמא" required>

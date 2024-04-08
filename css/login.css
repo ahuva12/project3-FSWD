@@ -5,7 +5,7 @@ body {
     background-color: #ace7f4;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
     height: 100vh;
 }
 
@@ -23,11 +23,9 @@ h2 {
 
 input[type="text"],
 input[type="password"],
-input[type="number"],
 input[type="email"],
 input[type="date"],
-input[type="submit"],
-input[type="user_name"]{
+input[type="submit"] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -68,7 +66,7 @@ h1{
 @keyframes moveDown {
     0% { bottom: 30%; transform: translateY(0); }
     50% { transform: translateY(50%); } 
-    100% { bottom: -350%; transform: translateY(0); }
+    100% { bottom: -35%; transform: translateY(0); }
 }
 
 .balloon1, .balloon2{
