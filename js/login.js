@@ -16,7 +16,17 @@ loginForm.addEventListener('submit', function(event) {
     fxmlObj.open('GET', urlLogin, true);
     fxmlObj.onreadystatechange = function() {
         if (fxmlObj.readyState === 4 && fxmlObj.status === 200) {
-            goto_applicaion_page();
+            let response = JSON.parse(xhr.responseText);
+            if (response.content === "the user is correct") {
+                goto_applicaion_page();
+            }
+            else {
+                if (response.content === "the user does not exsit") {
+                userName.value = "";
+                }
+                alert(response.content);
+                userPassword.value = ""
+            } 
         }
     }
     fxmlObj.send(checkUser_JSON); 
@@ -32,16 +42,3 @@ goSignup_button.addEventListener('click', goto_signup_page);
 function goto_signup_page() {
     //todo this with SPA
 }
-
-
-
-const signupForm = document.getElementById('signup-form');
-signupForm.addEventListener('submit', function(event) {
-   event.preventDefault();
-
-   // let usersJson = localStorage.getItem('users');
-   // let users = JSON.parse(usersJson);
-   // users.push(newUser);
-   // localStorage.setItem('users', JSON.stringify(users)); 
-   goto_applicaion_page();
-});

@@ -76,6 +76,23 @@ export default function addUser(newUser) {
     localStorage.setItem(newUser.name, newUserJson)
 }
 
+export default function check_user(user) {
+    let userName = checkUser.name;
+
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key === userName) {
+            if (key.name === userName && key.password === user.password) {
+                return "the user is correct";
+            }
+            else {
+                return "the passord is incorrect"
+            }
+        }
+        return "the user does not exsit"
+    }
+}
+
 // user1: []
 // user2: []
 // user3: []
