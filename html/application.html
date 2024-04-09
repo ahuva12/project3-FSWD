@@ -1,36 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application</title>
     <link rel="stylesheet" href="../css/application.css">
-    <script src="../js/client.js" defer></script>
+    <!--<script src="../js/client.js" defer></script>-->
+    <script src="../js/client.js"></script>
 </head>
+
 <body>
-   <h1 id="title">מה אתה בוחר לעשות היום? לחץ על הבלון המתאים</h1>
-   <div id="options">
-    <figcaption>מחיקת חבר (תמיד יותר טוב להשלים:)
-        <img class="balloon" id="removeFriend" src="../images/yellow.jpg" alt="img not found" width="200px">
-    </figcaption>
-    <figcaption>חיפוש חבר
-        <img class="balloon" id="searchFriend" src="../images/red.jpg" alt="img not found" width="200px">
-    </figcaption>
-    <figcaption>הוספת חבר
-        <img class="balloon" id="addFriend" src="../images/green.jpg" alt="img not found" width="200px">
-    </figcaption>
-    <figcaption>עדכון חבר
-        <img class="balloon" id="updateFriend" src="../images/pink.jpg" alt="img not found" width="250px">
-    </figcaption>
-    <figcaption>הצגת כל החברים
-        <img class="balloon" id="displayAllFriends" src="../images/blue.jpg" alt="img not found" width="200px">
-    </figcaption>
-   </div>
-   <div id="displayfriends">
-        <button class="okey" onclick="hide_display_friends()">Ok</button>
-   </div>
-   <div id="displayONEfriend">
-        <button class="okey" onclick="hide_display_spec_friend()">Ok</button>
-    /</div>
+    <div class="content">
+        <h1 id="title">מה אתה בוחר לעשות היום? לחץ על הבלון המתאים</h1>
+    </div>
+    <div id="options">
+        <figcaption>מחיקת חבר (תמיד יותר טוב להשלים:)
+            <button onclick="navigateTo('removeFriendPage')">
+                <img class="balloon" src="../images/yellow.jpg" alt="img not found">
+            </button>
+        </figcaption>
+        <figcaption>חיפוש חבר
+            <button onclick="navigateTo('searchFriendPage')">
+                <img class="balloon" src="../images/red.jpg" alt="img not found">
+            </button>
+        </figcaption>
+        <figcaption>הוספת חבר
+            <button onclick="navigateTo('addFriendPage')">
+                <img class="balloon" src="../images/green.jpg" alt="img not found">
+            </button>
+        </figcaption>
+        <figcaption>עדכון חבר
+            <button onclick="navigateTo('updateFriendPage')">
+                <img class="balloon" src="../images/pink.jpg" alt="img not found">
+            </button>
+        </figcaption>
+        <figcaption>הצגת כל החברים
+            <button onclick="navigateTo('displayAllFriendsPage')">
+                <img class="balloon" src="../images/blue.jpg" alt="img not found">
+            </button>
+        </figcaption>
+    </div>
+    <div id="content">
+        <div id="addFriendPage" class="page active">
+            <br><br><br>
+            <h1>Add Friend</h1>
+        </div>
+
+        <div id="updateFriendPage" class="page">
+            <br><br><br>
+            <h1> Update Friend</h1>
+          
+        </div>
+
+        <div id="removeFriendPage" class="page">
+            <br><br><br>
+            <h1>Remove Friend Page</h1>
+        </div>
+
+        <div id="searchFriendPage" class="page">
+            <br><br><br>
+            <h1>Search Friend</h1>
+
+        </div>
+
+        <div id="displayAllFriendsPage" class="page">
+            <br><br><br>
+            <h1>Display All Friends</h1>
+        </div>
+    </div>
+
 </body>
+
 </html>

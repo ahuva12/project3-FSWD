@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page Application Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #navbar {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    #content {
+      padding: 20px;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <button onclick="navigateTo('home')">Home</button>
+    <button onclick="navigateTo('about')">About</button>
+    <button onclick="navigateTo('contact')">Contact</button>
+  </div>
+  <div id="content">
+    <div id="home" class="page active">
+      <h1>Welcome to Home Page</h1>
+      <p>This is the home page content.</p>
+    </div>
+    <div id="about" class="page">
+      <h1>About Us</h1>
+      <p>We are a SPA example.</p>
+    </div>
+    <div id="contact" class="page">
+      <h1>Contact Us</h1>
+      <p>You can reach us at example@example.com.</p>
+    </div>
+  </div>
+  
+  <script>
+    function navigateTo(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // Show the requested page
+      const pageToShow = document.getElementById(pageId);
+      pageToShow.classList.add('active');
+    }
+  </script>
+</body>
+</html>

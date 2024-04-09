@@ -1,4 +1,4 @@
-import FXMLHttpRequest from './Fajak';
+//import FXMLHttpRequest from './Fajak';
   
 // Function to perform a fake AJAX request
 function fakeAjax(method, url, data, callback) {
@@ -9,9 +9,41 @@ function fakeAjax(method, url, data, callback) {
         const response = JSON.parse(xhr.responseText);
         callback(response);
       }
+      else {
+        // Request failed
+        console.error('Request failed with status ' + xhr.status);
+    }
     };
     xhr.send(JSON.stringify(data));
 }
+
+//for spa
+function navigateTo(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        page.classList.remove('active');
+    });
+
+    // Show the requested page
+    const pageToShow = document.getElementById(pageId);
+    pageToShow.classList.add('active');
+    if (pageId === 'updateFriendPage') {
+updateFriend();}
+else if(pageId==='addFriendPage'){
+    addFriend();
+}
+else if(pageId==='removeFriendPage'){
+    removeFriendPage();
+}
+else if(pageId==='searchFriendPage'){
+    searchFriendPage();
+}
+else if(pageId==='displayAllFriendsPage'){
+    displayAllFriendsPage();
+}
+}
+
   
 //   // Example usage:
 //   fakeAjax("GET", "/api/data", null, function(response) {
@@ -29,7 +61,10 @@ displayAllFriends.addEventListener('click', display_all_friends);
 remove_friend.addEventListener('click', removeFriend);
 search_friend.addEventListener('click', searchFriend);
 add_Driend.addEventListener('click', addFriend);
-update_friend.addEventListener('click', updateFriend);
+//update_friend.addEventListener('click', updateFriend);
+document.getElementById('updateFriendButton').addEventListener('click', function() {
+ updateFriend();
+});
 
 function display_all_friends() {
     //send AJAK. result = allFriendsJson
