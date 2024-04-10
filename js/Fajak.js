@@ -1,4 +1,4 @@
-import handleRequest from './server.js';
+//import handleRequest from './server.js';
 
 class FXMLHttpRequest {
     constructor() {
@@ -17,6 +17,7 @@ class FXMLHttpRequest {
     }
   
     open(method, url, async) {
+      console.log('open');
       this.method = method;
       this.url = url;
       this.readyState = 1; 
@@ -28,10 +29,16 @@ class FXMLHttpRequest {
     }
   
     send(data=null) {
+      console.log('send');
       if (this.readyState !== 1) throw new Error("Invalid state");
       
       setTimeout(() => {
-        this.responseText = handleRequest(data);
+        if (this.url == `file:///C:/Users/user/Desktop/%D7%AA%D7%A9%D7%A4%D7%93%20%D7%A1%D7%9E%D7%A1%D7%98%D7%A8%20%D7%90/Full-Stack/project3-FSWD/html/application.html`) {
+          this.responseText = handleRequestApp(data, this.method);
+        }
+        else {
+          this.responseText = handleRequestEnter(data, this.method);
+        }
         this.status = 200;
         this.readyState = 4; 
         if (typeof this.onreadystatechange === "function") {
@@ -82,5 +89,5 @@ class FXMLHttpRequest {
     }
   }
 
-  export { FXMLHttpRequest };
+//  export { FXMLHttpRequest };
 

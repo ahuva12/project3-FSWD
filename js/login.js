@@ -1,9 +1,9 @@
-import FXMLHttpRequest from './Fajak';
+//import FXMLHttpRequest from './Fajak';
 
 let loginForm = document.getElementById('login-form');
 loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
-    let userName = document.getElementById('ser_name').value;
+    let userName = document.getElementById('user_name').value;
     let userPassword = document.getElementById('password').value;
     let checkUser = {
         name: userName,
@@ -16,9 +16,11 @@ loginForm.addEventListener('submit', function(event) {
     fxmlObj.open('GET', urlLogin, true);
     fxmlObj.onreadystatechange = function() {
         if (fxmlObj.readyState === 4 && fxmlObj.status === 200) {
-            let response = JSON.parse(xhr.responseText);
+            let response = JSON.parse(fxmlObj.responseText);
             if (response.content === "the user is correct") {
-                goto_applicaion_page();
+                let curr_user_name = document.getElementById('current-user');
+                curr_user_name.innerHTML = userName;
+                removeDisplay('login');
             }
             else {
                 if (response.content === "the user does not exsit") {
@@ -31,14 +33,3 @@ loginForm.addEventListener('submit', function(event) {
     }
     fxmlObj.send(checkUser_JSON); 
 });
-
-function goto_applicaion_page() {
-        //todo this with SPA
-}
-
-let goSignup_button = document.getElementById('signup-link');
-goSignup_button.addEventListener('click', goto_signup_page);
-
-function goto_signup_page() {
-    //todo this with SPA
-}

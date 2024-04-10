@@ -6,67 +6,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application</title>
     <link rel="stylesheet" href="../css/application.css">
-    <!--<script src="../js/client.js" defer></script>-->
-    <script src="../js/client.js"></script>
+    <script src="../js/client.js" defer></script>
+    <script src="../js/login.js" defer></script>
+    <script src="../js/signup.js" defer></script>
+    <script src="../js/Fajak.js" defer></script>
+    <script src="../js/server.js" defer></script>
+    <script src="../js/db.js" defer></script>
 </head>
 
 <body>
-    <div class="content">
+
+    <div class="titles">
         <h1 id="title">מה אתה בוחר לעשות היום? לחץ על הבלון המתאים</h1>
+        <h1 id="current-user"></h1>
     </div>
     <div id="options">
-        <figcaption>מחיקת חבר (תמיד יותר טוב להשלים:)
-            <button onclick="navigateTo('removeFriendPage')">
-                <img class="balloon" src="../images/yellow.jpg" alt="img not found">
-            </button>
-        </figcaption>
-        <figcaption>חיפוש חבר
-            <button onclick="navigateTo('searchFriendPage')">
-                <img class="balloon" src="../images/red.jpg" alt="img not found">
-            </button>
-        </figcaption>
-        <figcaption>הוספת חבר
-            <button onclick="navigateTo('addFriendPage')">
-                <img class="balloon" src="../images/green.jpg" alt="img not found">
-            </button>
-        </figcaption>
-        <figcaption>עדכון חבר
-            <button onclick="navigateTo('updateFriendPage')">
-                <img class="balloon" src="../images/pink.jpg" alt="img not found">
-            </button>
-        </figcaption>
-        <figcaption>הצגת כל החברים
-            <button onclick="navigateTo('displayAllFriendsPage')">
-                <img class="balloon" src="../images/blue.jpg" alt="img not found">
-            </button>
-        </figcaption>
+        <button class="balloon-button" onclick="navigateTo('removeFriendPage')">
+            <img class="balloon" src="../images/yellow.jpg" alt="img not found">
+            <figcaption>מחיקת חבר (תמיד יותר טוב להשלים:)</figcaption>
+        </button>
+        <button class="balloon-button" onclick="navigateTo('searchFriendPage')">
+            <img class="balloon" src="../images/red.jpg" alt="img not found">
+            <figcaption>חיפוש חבר</figcaption>
+        </button>
+        <button class="balloon-button" onclick="navigateTo('updateFriendPage')">
+            <img class="balloon" src="../images/pink.jpg" alt="img not found">
+            <figcaption>עדכון חבר</figcaption>
+        </button>
+        <button class="balloon-button" onclick="navigateTo('addFriendPage')">
+            <img class="balloon" src="../images/green.jpg" alt="img not found">
+            <figcaption>הוספת חבר</figcaption>
+        </button>
+        <button class="balloon-button" onclick="navigateTo('displayAllFriendsPage')">
+            <img class="balloon" src="../images/blue.jpg" alt="img not found">
+            <figcaption>הצגת כל החברים</figcaption>
+        </button>
     </div>
+
     <div id="content">
-        <div id="addFriendPage" class="page active">
+        <div id="login" class="page active">
+            <div class="container-form" id="log-in-container">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <label for="user_name">שם משתמש</label>
+                    <input type="text" id="user_name" name="user_name" placeholder="מה השם שלך?" required>
+                    <label for="password">סיסמא</label>
+                    <input type="password" id="password" name="password" placeholder="הכנס סיסמא" required>
+                   
+                    <input type="submit" value="Login">
+                </form>
+                <div class="switch">
+                    <p>פעם ראשונה באתר? הרשם כדי לשמור גם את החברים שלך בפנים! <a id="signup-link">רישום</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <div id="signup" class="page">
+            <div class="container-form" id="signup-container">
+                <h2>Sign Up</h2>
+                <form id="signup-form" >
+    
+                    <label for="signup-user-name">מה השם שלך?</label>
+                    <input type="text" id="signup-user-name" name="signup-user-name" placeholder="מה השם שלך?" required>
+                    
+                    <label for="signup-email">מה המייל שלך?</label>
+                    <input type="email" id="signup-email" name="email" placeholder="mail@gmail.com" pattern="^[a-zA-Z0-9]+@+[a-zA-Z0-9]{1,}$" title="The email address is invalid">
+    
+                    <label for="signup-password">איזו סיסמא אתה בוחר?</label>
+                    <input type="password" id="signup-password" name="signup-password" placeholder="הכנס סיסמא" required>
+    
+                    <label for="confirm-password">אימות סיסמא</label>
+                    <input type="password" id="confirm-password" name="signup-password" placeholder="אימות סיסמא" required>
+    
+                    <label for="birthdate">מתי חל יום ההולדת שלך?</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+    
+                    <input type="submit" value="Sign Up" onclick="return validPassword()">
+                </form>
+    
+                <div class="switch">
+                    <p>כבר יש לך חשבון באתר? <a id="login-link">כניסה</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="addFriendPage" class="page">
             <br><br><br>
+            <form id="add-form">
+                <label for="add_friend_name"></label>
+                <input type="text" id="add_friend_name" name="add_friend_name" placeholder="את מי אתה רוצה להוסיף?" required>
+                <label for="add_friend_date"></label>
+                <input type="text" id="add_friend_date" name="add_friend_date" placeholder="מה תאריך היומולדת שלו?" required>
+                <input type="submit" value="הוסף">
+            </form>
+            <h1 class="add_response"></h1>
             <h1>Add Friend</h1>
+            <button id="ok_add" class="okey" onclick="removeDisplay('addFriendPage')">OK</button>
         </div>
 
         <div id="updateFriendPage" class="page">
             <br><br><br>
+            <form id="update-form">
+                <label for="up_friend_name"></label>
+                <input type="text" id="up_friend_name" name="up_friend_name" placeholder="את מי אתה רוצה לעדכן?" required>
+                <label for="up_friend_date"></label>
+                <input type="text" id="up_friend_date" name="up_friend_date" placeholder="מה תאריך היומולדת שלו?" required>
+                <input type="submit" value="עדכן">
+            </form>
+            <h1 class="up_response"></h1>
             <h1> Update Friend</h1>
-          
+            <button id="ok_up" class="okey" onclick="removeDisplay('updateFriendPage')">OK</button>
         </div>
 
         <div id="removeFriendPage" class="page">
             <br><br><br>
+            <form id="rem-form">
+                <label for="rm_friend_name"></label>
+                <input type="text" id="rm_friend_name" name="rm_friend_name" placeholder="את מי אתה רוצה למחוק?" required>
+                <input type="submit" value="מחק">
+            </form>
+            <h1 class="rm_response"></h1>
             <h1>Remove Friend Page</h1>
+            <button id="ok_rm" class="okey" onclick="removeDisplay('removeFriendPage')">OK</button>
         </div>
 
         <div id="searchFriendPage" class="page">
             <br><br><br>
+            <form id="search-form">
+                <label for="se_friend_name"></label>
+                <input type="text" id="se_friend_name" name="se_friend_name" placeholder="את מי אתה רוצה לחפש?" required>
+                <input type="submit" value="חפש">
+            </form>
+            <h1 class="se_response"></h1>
             <h1>Search Friend</h1>
-
+            <button id="ok_search" class="okey" onclick="removeDisplay('searchFriendPage')">OK</button>
         </div>
 
         <div id="displayAllFriendsPage" class="page">
             <br><br><br>
             <h1>Display All Friends</h1>
+            <button class="okey" onclick="removeDisplay('displayAllFriendsPage')">OK</button>
         </div>
     </div>
 
