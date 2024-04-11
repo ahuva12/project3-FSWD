@@ -69,6 +69,7 @@ figcaption {
 }
 
 
+
 /* .balloon {
 
     margin: 0 5px;
@@ -191,6 +192,10 @@ button {
     border: 1px black solid;
     border-radius: 5px;
     cursor: pointer;
+    display: none;
+}
+#ok_dis {
+    display: block;
 }
 
 .friend {

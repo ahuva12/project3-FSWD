@@ -100,11 +100,11 @@ function remove_friend(nameOFfriend) {
             return "the friend removed at success";
         }
         else {
-            return "The friend could not be removed";
+            return "The friend did not found";
         }
     }
     else {
-        return "The friend did not found";
+        return "The friend could not be removed";
     }
 }
 
@@ -118,18 +118,17 @@ function update_friend(updateFriend) {
             set_user_in_localstorage(currUser);
             return "the friend updated at success";
         }
-        return "The friend could not be updated";
+        return "The friend did not found";
 
     }
     else {
-        return "The friend did not found";
+        return "The friend could not be updated";
     }
 }
 
 //add user to the local storage
 function addUser(newUser) {
     let newClassUser = new User(newUser.name, newUser.email, newUser.password, newUser.birthDate);
-    newClassUser.addFriend({ name: "hadar", datebirth: "03-09-2020"});
     let newUserJson = JSON.stringify(newClassUser);
     localStorage.setItem(newUser.name, newUserJson)
     if (newUser.name in localStorage) {

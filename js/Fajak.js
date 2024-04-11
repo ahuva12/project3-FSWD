@@ -31,20 +31,17 @@ class FXMLHttpRequest {
     send(data=null) {
       console.log('send');
       if (this.readyState !== 1) throw new Error("Invalid state");
-      
-      setTimeout(() => {
-        if (this.url == `file:///C:/Users/user/Desktop/%D7%AA%D7%A9%D7%A4%D7%93%20%D7%A1%D7%9E%D7%A1%D7%98%D7%A8%20%D7%90/Full-Stack/project3-FSWD/html/application.html`) {
-          this.responseText = handleRequestApp(data, this.method);
-        }
-        else {
-          this.responseText = handleRequestEnter(data, this.method);
-        }
-        this.status = 200;
-        this.readyState = 4; 
-        if (typeof this.onreadystatechange === "function") {
+      else {
+          if (this.url == `file:///C:/Users/user/Desktop/%D7%AA%D7%A9%D7%A4%D7%93%20%D7%A1%D7%9E%D7%A1%D7%98%D7%A8%20%D7%90/Full-Stack/project3-FSWD/html/application.html`) {
+            this.responseText = handleRequestApp(data, this.method);
+          }
+          else {
+            this.responseText = handleRequestEnter(data, this.method);
+          }
+          this.status = 200;
+          this.readyState = 4; 
           this.onreadystatechange();
-        }
-      }, 500); // Simulate delay for network request
+      }
     }
 
     abort() {

@@ -7,14 +7,14 @@ function handleRequestEnter(dataJson, method) {
     let data = JSON.parse(dataJson);
     let response;
 
-    if (method === "GET" && typeof(data) === 'object') {
+    if (method === "GET") {
         response = {message: "GET request received", content: check_user(data)};
     }
     // else if (FXMLHttpRequest.method === "GET" && data !== null) {
     //     response = { message: "GET request received", content: user.displaySpecificFriend(data)}
     // }
  
-    else if (method === "POST" && typeof(data) === 'object') {
+    else if (method === "POST") {
         response = { message: "POST request received", content: addUser(data) };
     }  
     return JSON.stringify(response)

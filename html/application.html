@@ -99,8 +99,7 @@
                 <input type="text" id="add_friend_date" name="add_friend_date" placeholder="מה תאריך היומולדת שלו?" required>
                 <input type="submit" value="הוסף">
             </form>
-            <h1 class="add_response"></h1>
-            <h1>Add Friend</h1>
+            <h1 id="add_response"></h1>
             <button id="ok_add" class="okey" onclick="removeDisplay('addFriendPage')">OK</button>
         </div>
 
@@ -113,8 +112,7 @@
                 <input type="text" id="up_friend_date" name="up_friend_date" placeholder="מה תאריך היומולדת שלו?" required>
                 <input type="submit" value="עדכן">
             </form>
-            <h1 class="up_response"></h1>
-            <h1> Update Friend</h1>
+            <h1 id="up_response"></h1>
             <button id="ok_up" class="okey" onclick="removeDisplay('updateFriendPage')">OK</button>
         </div>
 
@@ -125,8 +123,7 @@
                 <input type="text" id="rm_friend_name" name="rm_friend_name" placeholder="את מי אתה רוצה למחוק?" required>
                 <input type="submit" value="מחק">
             </form>
-            <h1 class="rm_response"></h1>
-            <h1>Remove Friend Page</h1>
+            <h1 id="rm_response"></h1>
             <button id="ok_rm" class="okey" onclick="removeDisplay('removeFriendPage')">OK</button>
         </div>
 
@@ -137,15 +134,13 @@
                 <input type="text" id="se_friend_name" name="se_friend_name" placeholder="את מי אתה רוצה לחפש?" required>
                 <input type="submit" value="חפש">
             </form>
-            <h1 class="se_response"></h1>
-            <h1>Search Friend</h1>
+            <h1 id="se_response"></h1>
             <button id="ok_search" class="okey" onclick="removeDisplay('searchFriendPage')">OK</button>
         </div>
 
         <div id="displayAllFriendsPage" class="page">
             <br><br><br>
-            <h1>Display All Friends</h1>
-            <button class="okey" onclick="removeDisplay('displayAllFriendsPage')">OK</button>
+            <button class="ok_dis" onclick="removeDisplay('displayAllFriendsPage')">OK</button>
         </div>
     </div>
 
