@@ -78,13 +78,6 @@ class FXMLHttpRequest {
         return null;
     }  
   }
-  
-  class XMLHttpRequestUpload {
-    constructor() {
-      // This is just a placeholder for XMLHttpRequestUpload object
-      // You can add properties and methods if necessary
-    }
-  }
 
 //  export { FXMLHttpRequest };
 
