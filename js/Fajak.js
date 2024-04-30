@@ -13,7 +13,6 @@ class FXMLHttpRequest {
       this.timeout = 0;
       this.responseType = "json";
       this.withCredentials = false;
-      this.upload = new XMLHttpRequestUpload();
     }
   
     open(method, url, async) {

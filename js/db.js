@@ -168,8 +168,6 @@ function close_web() {
     localStorage.setItem('currentUser', JSON.stringify('no_user'));
 }
 
-// user1: []
-// user2: []
-// user3: []
+
 
 

@@ -1,5 +1,5 @@
 // import user from './db';
-// import addUser from './db';
+//import addUser from './db';
 // import check_user from './db';
 // import FXMLHttpRequest from './Fajak';
 
